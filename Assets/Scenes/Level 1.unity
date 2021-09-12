@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4984415, y: -1.4609478, z: -10.058426}
+  m_LocalPosition: {x: -0.39, y: -1.4609478, z: -10.058426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2050308074}
@@ -11515,7 +11515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286347725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.12, z: 0}
+  m_LocalPosition: {x: 0.065, y: -2.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1379637858}
@@ -11565,7 +11565,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 10
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f897ad95eb815d7498cdc8515ffde5c0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -11579,32 +11579,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1286347725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b3105a602d7c34792e3bb9795743fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 377918617e410de4ab1b74c190d77f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doubleJumpCoin: {fileID: 0}
-  youWinCoin: {fileID: 0}
   movementSpeed: 15
-  rb: {fileID: 0}
-  airMovementForce: 20
-  airDragMultiplier: 0.95
-  jumpRememberTime: 0.2
+  rb: {fileID: 1286347729}
+  airMovementForce: 100
+  airDragMultiplier: 0.9
   jumpForce: 25
-  groundCheck: {fileID: 1379637858}
-  groundCheckRadius: 0.225
   amountOfJumps: 1
-  variableJumpeHeightMultiplier: 0.5
+  groundCheckRadious: 0.2
+  groundCheck: {fileID: 1379637858}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  variableJumpHeightMultiplier: 0.5
   wallCheck: {fileID: 2058073447}
-  wallCheckDistance: 0.25
-  wallSlideSpeed: 1
-  wallHopDirection: {x: 0, y: 0}
-  wallJumpDirection: {x: 0, y: 0}
-  wallHopForce: 0
-  wallJumpForce: 0
-  animator: {fileID: 0}
+  wallCheckDistance: 0.5
+  wallSlidingSpeed: 0.5
 --- !u!1 &1379637857
 GameObject:
   m_ObjectHideFlags: 0
@@ -11690,7 +11682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058073446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.301, y: 0, z: 0}
+  m_LocalPosition: {x: 0.071, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1286347727}
