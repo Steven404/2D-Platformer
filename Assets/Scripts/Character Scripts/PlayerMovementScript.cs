@@ -65,7 +65,7 @@ public class PlayerMovementScript : MonoBehaviour
         CheckSurroundings();
         Vector3 whereIAm = Camera.main.transform.position;
         Vector3 whereIShouldBe = transform.position - new Vector3(0, 0, 10);
-        Camera.main.transform.position = Vector3.Lerp(whereIAm, whereIShouldBe, 0.085f);
+        Camera.main.transform.position = Vector3.Lerp(whereIAm, whereIShouldBe, 0.5f);
     }
 
     public void LateUpdate() {
@@ -93,9 +93,9 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void CheckMovementDirection() {
-        if(isFacingRight && movementDirectionInput < 0) {
+        if(isFacingRight && movementDirectionInput < 0 && !isWallJumping) {
             flip();
-        } else if(!isFacingRight && movementDirectionInput > 0) {
+        } else if(!isFacingRight && movementDirectionInput > 0 && !isWallJumping) {
             flip();
         }
     }
