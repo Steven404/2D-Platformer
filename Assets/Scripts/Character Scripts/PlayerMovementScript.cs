@@ -6,18 +6,19 @@ public class PlayerMovementScript : MonoBehaviour
 {
     private float movementDirectionInput;
 
+    private int variableJumpCounter;
+
     private bool isFacingRight = true;
     private int facingDirection = 1;
     private bool isWalking;
     private bool isGrounded;
-    private bool canJump;
     private bool isTouchingWall;
     private bool isWallSliding;
     private bool isWallJumping;
   
     private int amountOfJumpsLeft;
 
-    
+    private float jumpRemember;
 
     [Header("For ground movement")]
     [SerializeField] public float movementSpeed;
@@ -28,6 +29,7 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] public float airDragMultiplier;
 
     [Header("For jumping")]
+    [SerializeField] public float jumpRememberTime = 0.35f;
     [SerializeField] public float jumpForce;
     [SerializeField] public int amountOfJumps;
     [SerializeField] public float groundCheckRadious;
@@ -43,11 +45,11 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] public Vector2 wallHopDirection;
     [SerializeField] public float wallJumpForce;
     [SerializeField] public Vector2 wallJumpDirection;
+    [SerializeField] public float wallJumpTimer = 1.5f; // allowing the player to controller the player after a specified time
 
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        amountOfJumpsLeft = amountOfJumps;
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
     }
@@ -56,7 +58,6 @@ public class PlayerMovementScript : MonoBehaviour
     {
         CheckInput();
         CheckMovementDirection();
-        JumpCheck();
         CheckIfWallSliding();
     }
 
@@ -81,17 +82,6 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-    private void JumpCheck() {
-        if (isGrounded && rb.velocity.y <= 0.0001f) {
-            amountOfJumpsLeft = amountOfJumps;
-        }
-        if (amountOfJumpsLeft <=0) {
-            canJump = false;
-        } else {
-            canJump = true;
-        }
-    }
-
     private void CheckMovementDirection() {
         if(isFacingRight && movementDirectionInput < 0 && !isWallJumping) {
             flip();
@@ -111,31 +101,41 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void CheckInput() {
         movementDirectionInput = Input.GetAxisRaw("Horizontal");
+        jumpRemember -= Time.deltaTime;
 
         if (Input.GetButtonDown("Jump")) {
+            jumpRemember = jumpRememberTime;
+        }
+        if ((jumpRemember > 0 && isGrounded) || ((isWallSliding || isTouchingWall) && jumpRemember > 0) || (jumpRemember>0 && !isTouchingWall)) {
+            --amountOfJumpsLeft;
             Jump();
         }
-        if(Input.GetButtonUp("Jump")) {
+        if ((isWallSliding || isTouchingWall) && Input.GetButtonDown("Fire3")) {
+            isWallJumping = true;
+            isWallSliding = false;
+            Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * -facingDirection, wallHopForce * wallHopDirection.y);
+            rb.AddForce(forceToAdd, ForceMode2D.Impulse);
+            flip();
+        }
+        if(Input.GetButtonUp("Jump") && variableJumpCounter > 0) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
+            variableJumpCounter--; // Variable Jump bug fix (slowing down on spamming space when falling)
         }
     }
 
     private void Jump() {
-        if (canJump && !isWallSliding) {
+        if (!isWallSliding && !isWallJumping *) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            amountOfJumpsLeft--;
-        } else if (isWallSliding && Input.GetButtonDown("Fire3")) {
-            isWallJumping = true;
-            isWallSliding = false;
-            Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x *-facingDirection, wallHopForce * wallHopDirection.y);
-            rb.AddForce(forceToAdd, ForceMode2D.Impulse);
-            flip();
-        } else if ((isWallSliding || isTouchingWall) && Input.GetButtonDown("Jump")) {
+
+            jumpRemember = 0;
+        }
+        else if ((isWallSliding || isTouchingWall)) {
             isWallJumping = true;
             isWallSliding = false;
             Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
             rb.AddForce(forceToAdd, ForceMode2D.Impulse);
             flip();
+            jumpRemember = 0;
         }
     }
 
@@ -146,12 +146,13 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void ApplyMovement() {
         if (isGrounded) {
+            variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
+            amountOfJumpsLeft = amountOfJumps;
             isWallJumping = false;
             rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
         } else if (!isGrounded && !isWallSliding && movementDirectionInput != 0 && !isWallJumping){
             Vector2 forceToAdd = new Vector2(airMovementForce * movementDirectionInput, rb.velocity.y);
             rb.AddForce(forceToAdd);
-
             if (Mathf.Abs(rb.velocity.x) > movementSpeed) {
                 rb.velocity = new Vector2(movementSpeed * movementDirectionInput, rb.velocity.y);
             }
