@@ -14116,7 +14116,7 @@ MonoBehaviour:
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpForce: 35
   wallJumpDirection: {x: 1, y: 1.5}
-  wallJumpTimer: 0
+  wallJumpTimer: 0.5
 --- !u!1 &1379637857
 GameObject:
   m_ObjectHideFlags: 0

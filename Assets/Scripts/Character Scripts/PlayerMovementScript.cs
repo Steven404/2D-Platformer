@@ -15,6 +15,7 @@ public class PlayerMovementScript : MonoBehaviour
     private bool isTouchingWall;
     private bool isWallSliding;
     private bool isWallJumping;
+    private float wallJumpTimeLeft;
   
     private int amountOfJumpsLeft;
 
@@ -102,15 +103,17 @@ public class PlayerMovementScript : MonoBehaviour
     private void CheckInput() {
         movementDirectionInput = Input.GetAxisRaw("Horizontal");
         jumpRemember -= Time.deltaTime;
+        wallJumpTimeLeft -= Time.deltaTime;
 
         if (Input.GetButtonDown("Jump")) {
             jumpRemember = jumpRememberTime;
         }
-        if ((jumpRemember > 0 && isGrounded) || ((isWallSliding || isTouchingWall) && jumpRemember > 0) || (jumpRemember>0 && !isTouchingWall)) {
+        if ((jumpRemember > 0 && isGrounded) || ((isWallSliding || isTouchingWall) && jumpRemember > 0) || (jumpRemember> 0 && !isTouchingWall && amountOfJumpsLeft>0)) {
             --amountOfJumpsLeft;
             Jump();
         }
         if ((isWallSliding || isTouchingWall) && Input.GetButtonDown("Fire3")) {
+            wallJumpTimeLeft = wallJumpTimer;
             isWallJumping = true;
             isWallSliding = false;
             Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * -facingDirection, wallHopForce * wallHopDirection.y);
@@ -124,12 +127,13 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void Jump() {
-        if (!isWallSliding && !isWallJumping *) {
+        if (!isWallSliding && !isWallJumping) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
             jumpRemember = 0;
         }
         else if ((isWallSliding || isTouchingWall)) {
+            wallJumpTimeLeft = wallJumpTimer;
             isWallJumping = true;
             isWallSliding = false;
             Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
@@ -145,10 +149,11 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void ApplyMovement() {
-        if (isGrounded) {
+
+        if (isGrounded && rb.velocity.y < 0.01f) {
+            isWallJumping = false;
             variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
             amountOfJumpsLeft = amountOfJumps;
-            isWallJumping = false;
             rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
         } else if (!isGrounded && !isWallSliding && movementDirectionInput != 0 && !isWallJumping){
             Vector2 forceToAdd = new Vector2(airMovementForce * movementDirectionInput, rb.velocity.y);
@@ -159,6 +164,10 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
+        }
+        if (wallJumpTimeLeft <= 0) {
+            isWallJumping = false;
+            print("F");
         }
 
         if (isWallSliding) {
