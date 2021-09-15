@@ -12,6 +12,7 @@ public class PlayerMovementScript : MonoBehaviour
     private int facingDirection = 1;
     private bool isWalking;
     private bool isGrounded;
+    private bool isJumping;
     private bool isTouchingWall;
     private bool isWallSliding;
     private bool isWallJumping;
@@ -129,9 +130,12 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void Jump() {
-        if (!isWallSliding && !isWallJumping) {
+        if (isGrounded) {
+            isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
+            jumpRemember = 0;
+        } else if (!isWallSliding && !isWallJumping && isJumping) {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpRemember = 0;
         }
         else if ((isWallSliding || isTouchingWall)) {
@@ -152,6 +156,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void ApplyMovement() {
         if (isGrounded && rb.velocity.y <= 0.001f) {
+            isJumping = false;
             isWallJumping = false;
             variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
             amountOfJumpsLeft = amountOfJumps;

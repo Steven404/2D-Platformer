@@ -19806,9 +19806,9 @@ MonoBehaviour:
   rb: {fileID: 1286347729}
   airMovementForce: 90
   airDragMultiplier: 0.9
-  jumpRememberTime: 0.2
+  jumpRememberTime: 0.1
   jumpForce: 25
-  amountOfJumps: 1
+  amountOfJumps: 2
   groundCheckRadious: 0.15
   groundCheck: {fileID: 1379637858}
   whatIsGround:
