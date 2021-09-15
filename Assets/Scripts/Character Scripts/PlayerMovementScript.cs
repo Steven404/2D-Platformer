@@ -16,7 +16,8 @@ public class PlayerMovementScript : MonoBehaviour
     private bool isWallSliding;
     private bool isWallJumping;
     private float wallJumpTimeLeft;
-  
+
+
     private int amountOfJumpsLeft;
 
     private float jumpRemember;
@@ -60,14 +61,13 @@ public class PlayerMovementScript : MonoBehaviour
         CheckInput();
         CheckMovementDirection();
         CheckIfWallSliding();
+
     }
 
     private void FixedUpdate() {
         ApplyMovement();
         CheckSurroundings();
-        Vector3 whereIAm = Camera.main.transform.position;
-        Vector3 whereIShouldBe = transform.position - new Vector3(0, 0, 10);
-        Camera.main.transform.position = Vector3.Lerp(whereIAm, whereIShouldBe, 0.5f);
+
     }
 
     public void LateUpdate() {
@@ -108,7 +108,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetButtonDown("Jump")) {
             jumpRemember = jumpRememberTime;
         }
-        if ((jumpRemember > 0 && isGrounded) || ((isWallSliding || isTouchingWall) && jumpRemember > 0) || (jumpRemember> 0 && !isTouchingWall && amountOfJumpsLeft>0)) {
+        if ((jumpRemember > 0  && isGrounded) || ((isWallSliding || isTouchingWall) && jumpRemember > 0) || (jumpRemember> 0 && !isTouchingWall && amountOfJumpsLeft>0)) {
             --amountOfJumpsLeft;
             Jump();
         }
@@ -121,8 +121,10 @@ public class PlayerMovementScript : MonoBehaviour
             flip();
         }
         if(Input.GetButtonUp("Jump") && variableJumpCounter > 0) {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
-            variableJumpCounter--; // Variable Jump bug fix (slowing down on spamming space when falling)
+            if (rb.velocity.y > 0) {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
+                variableJumpCounter--; // Variable Jump bug fix (slowing down on spamming space when falling)
+            }
         }
     }
 
@@ -149,8 +151,7 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void ApplyMovement() {
-
-        if (isGrounded && rb.velocity.y < 0.01f) {
+        if (isGrounded && rb.velocity.y <= 0.001f) {
             isWallJumping = false;
             variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
             amountOfJumpsLeft = amountOfJumps;
@@ -161,13 +162,11 @@ public class PlayerMovementScript : MonoBehaviour
             if (Mathf.Abs(rb.velocity.x) > movementSpeed) {
                 rb.velocity = new Vector2(movementSpeed * movementDirectionInput, rb.velocity.y);
             }
-        }
-        else if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
+        } else if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
         if (wallJumpTimeLeft <= 0) {
             isWallJumping = false;
-            print("F");
         }
 
         if (isWallSliding) {
