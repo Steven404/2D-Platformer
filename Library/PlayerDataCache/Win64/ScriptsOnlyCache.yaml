@@ -2,6 +2,12 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - PlayerMovementScript
+    Cinemachine.dll:
+    - Cinemachine.CinemachineBrain
+    - Cinemachine.CinemachineConfiner
+    - Cinemachine.CinemachineFramingTransposer
+    - Cinemachine.CinemachinePipeline
+    - Cinemachine.CinemachineVirtualCamera
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -44,6 +50,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
+    - Class: 60
+      Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
     - Class: 62
@@ -56,6 +64,16 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 624}
+    - Class: 114
+      Script: {instanceID: 2642}
+    - Class: 114
+      Script: {instanceID: 2714}
+    - Class: 114
+      Script: {instanceID: 2780}
+    - Class: 114
+      Script: {instanceID: 2962}
+    - Class: 114
+      Script: {instanceID: 4028}
     - Class: 114
       Script: {instanceID: 4226}
     - Class: 115
@@ -595,7 +613,7 @@ ScriptsOnlyBuild:
     className: CinemachineTransposer
   - hash:
       serializedVersion: 2
-      Hash: 7b5cefc74897455ec45fc90030d4347c
+      Hash: 5e50169a429715b341d59e200eabddcd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovementScript
@@ -890,4 +908,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Level 1.unity
-  playerPath: C:/Unity Builds/2D Platformer.exe
+  playerPath: E:/Unity Builds/2D platformer fast/2D Platformer.exe
