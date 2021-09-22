@@ -56,8 +56,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 62
       Script: {instanceID: 0}
-    - Class: 66
-      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
@@ -613,7 +611,7 @@ ScriptsOnlyBuild:
     className: CinemachineTransposer
   - hash:
       serializedVersion: 2
-      Hash: 5e50169a429715b341d59e200eabddcd
+      Hash: 7b5cefc74897455ec45fc90030d4347c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovementScript
@@ -908,4 +906,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Level 1.unity
-  playerPath: E:/Unity Builds/2D platformer fast/2D Platformer.exe
+  playerPath: C:/Unity Builds/PC Build/2D plat/2D Platformer.exe
