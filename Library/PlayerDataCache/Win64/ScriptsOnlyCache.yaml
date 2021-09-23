@@ -56,6 +56,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 62
       Script: {instanceID: 0}
+    - Class: 66
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
@@ -63,17 +65,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 624}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2672}
     - Class: 114
-      Script: {instanceID: 2714}
+      Script: {instanceID: 2744}
     - Class: 114
-      Script: {instanceID: 2780}
+      Script: {instanceID: 2810}
     - Class: 114
-      Script: {instanceID: 2962}
+      Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 4028}
+      Script: {instanceID: 4058}
     - Class: 114
-      Script: {instanceID: 4226}
+      Script: {instanceID: 4256}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -821,6 +823,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 697beb16d87251227b39de32e68f8fb1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Parallax
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -906,4 +914,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Level 1.unity
-  playerPath: C:/Unity Builds/PC Build/2D plat/2D Platformer.exe
+  playerPath: E:/Unity Builds/2D platformer fast/2D Platformer.exe
