@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character Scripts\PlayerMovementScript.cs" />
+    <Compile Include="Assets\Scripts\Parallax.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
