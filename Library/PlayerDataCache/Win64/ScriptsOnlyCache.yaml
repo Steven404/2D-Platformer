@@ -65,17 +65,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 624}
     - Class: 114
-      Script: {instanceID: 2672}
+      Script: {instanceID: 2642}
     - Class: 114
-      Script: {instanceID: 2744}
+      Script: {instanceID: 2714}
     - Class: 114
-      Script: {instanceID: 2810}
+      Script: {instanceID: 2780}
     - Class: 114
-      Script: {instanceID: 2992}
+      Script: {instanceID: 2962}
     - Class: 114
-      Script: {instanceID: 4058}
+      Script: {instanceID: 4028}
     - Class: 114
-      Script: {instanceID: 4256}
+      Script: {instanceID: 4226}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -914,4 +914,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Level 1.unity
-  playerPath: E:/Unity Builds/2D platformer fast/2D Platformer.exe
+  playerPath: C:/Unity Builds/PC Build/2D plat/2D Platformer.exe

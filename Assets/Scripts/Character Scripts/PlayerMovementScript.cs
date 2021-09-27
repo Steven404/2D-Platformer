@@ -187,7 +187,7 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void ApplyMovement() {
-        if (isGrounded && rb.velocity.y <= 0.0001f) {
+        if (isGrounded && rb.velocity.y <= 0.001f) {
             isWallJumping = false;
             canDoubleJump = true;
             variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
