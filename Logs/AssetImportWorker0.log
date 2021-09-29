@@ -15,11 +15,11 @@ C:/Users/stef_/2D Platformer
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-64106
+53280
 Successfully changed project path to: C:/Users/stef_/2D Platformer
 C:/Users/stef_/2D Platformer
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 42.12 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 43.53 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.17f1 (a4537701e4ab)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
@@ -35,73 +35,73 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56988
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56504
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.106736 seconds.
+Registered in 0.001543 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 40.26 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 40.84 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.364 seconds
+- Completed reload, in  0.898 seconds
 Domain Reload Profiling:
-	ReloadAssembly (4364ms)
-		BeginReloadAssembly (2327ms)
+	ReloadAssembly (899ms)
+		BeginReloadAssembly (46ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (711ms)
-			LoadAssemblies (2331ms)
+		EndReloadAssembly (387ms)
+			LoadAssemblies (45ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (381ms)
+			SetupTypeCache (130ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (29ms)
-			SetupLoadedEditorAssemblies (216ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (163ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (40ms)
-				BeforeProcessingInitializeOnLoad (73ms)
-				ProcessInitializeOnLoadAttributes (67ms)
-				ProcessInitializeOnLoadMethodAttributes (33ms)
+				RefreshPlugins (41ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (75ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.510750 seconds.
+Registered in 0.002740 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 43.03 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 40.15 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.892 seconds
+- Completed reload, in  1.127 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3899ms)
-		BeginReloadAssembly (124ms)
+	ReloadAssembly (1128ms)
+		BeginReloadAssembly (131ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (20ms)
-		EndReloadAssembly (3722ms)
-			LoadAssemblies (2176ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (944ms)
+			LoadAssemblies (79ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (838ms)
+			SetupTypeCache (265ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (544ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (430ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (43ms)
-				BeforeProcessingInitializeOnLoad (76ms)
-				ProcessInitializeOnLoadAttributes (405ms)
-				ProcessInitializeOnLoadMethodAttributes (12ms)
+				RefreshPlugins (40ms)
+				BeforeProcessingInitializeOnLoad (73ms)
+				ProcessInitializeOnLoadAttributes (295ms)
+				ProcessInitializeOnLoadMethodAttributes (14ms)
 				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -109,15 +109,15 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 0.53 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.48 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2252 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 117.8 MB.
 System memory in use after: 118.0 MB.
 
 Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2710.
-Total: 3.778200 ms (FindLiveObjects: 0.247100 ms CreateObjectMapping: 0.066600 ms MarkObjects: 3.434600 ms  DeleteObjects: 0.028500 ms)
+Total: 3.979700 ms (FindLiveObjects: 0.333000 ms CreateObjectMapping: 0.120800 ms MarkObjects: 3.495200 ms  DeleteObjects: 0.028200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -131,17 +131,121 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Player All states 2.psd
-  artifactKey: Guid(a2ae0eb97bda6c244a7965d78f376dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player All states 2.psd using Guid(a2ae0eb97bda6c244a7965d78f376dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5252d384743224bbccec13cc116ba2bf') in 0.101202 seconds 
-  Import took 0.104882 seconds .
+  path: Assets/Player All states 2 - Αντιγραφή.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 - Αντιγραφή.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '168f4549b864a0bdfa1c7dcdd60c4e11') in 0.106115 seconds 
+  Import took 0.110074 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 18.505897 seconds.
+  Time since last request: 13.028546 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64a1cbd5ba94791cafb39c1188960ba5') in 0.023952 seconds 
+  Import took 0.028250 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 941.866786 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '042c92780c9e447914059f4b84124aa4') in 0.018923 seconds 
+  Import took 0.023392 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.954794 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8283ed20d445bea3813c592e7873fe87') in 0.012357 seconds 
+  Import took 0.016478 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.419230 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '373652fcea638c657f0e96a88782fd62') in 0.013896 seconds 
+  Import took 0.018573 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.300507 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7956f9baa3e8c510e26cb3f60b016ef3') in 0.081131 seconds 
+  Import took 0.085342 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 314.645581 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05191e5ed7526451a311ef628d1344e6') in 0.062942 seconds 
+  Import took 0.067724 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 154.342083 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88d4ddcd72e2c486538506ca36b14d38') in 0.071289 seconds 
+  Import took 0.076912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 177.315958 seconds.
   path: Assets/Player All states 2.psd
   artifactKey: Guid(a2ae0eb97bda6c244a7965d78f376dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player All states 2.psd using Guid(a2ae0eb97bda6c244a7965d78f376dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b00bf517d0db58a905d185aa9743ef0') in 0.071750 seconds 
-  Import took 0.076054 seconds .
+Start importing Assets/Player All states 2.psd using Guid(a2ae0eb97bda6c244a7965d78f376dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bce7fcf8ebe0898539f0fb68052e59c5') in 0.052695 seconds 
+  Import took 0.056865 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 446.318022 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '482f91086c5ae2e1580a53acaa239f8a') in 0.019996 seconds 
+  Import took 0.024259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 774.510028 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e77ad0b8d310101caed824aa1cb4a486') in 0.030665 seconds 
+  Import took 0.035554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 51.904918 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '675f4a02cd28010107b39e00a2b74e7f') in 0.012187 seconds 
+  Import took 0.016132 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.339571 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf3d495456e075d077095fe1d0662797') in 0.015002 seconds 
+  Import took 0.018581 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.530904 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76dcdfbd8d2aca1a70d1e918f9cc9330') in 0.089027 seconds 
+  Import took 0.092985 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 118.687862 seconds.
+  path: Assets/Player All states 2 No leg color.psd
+  artifactKey: Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player All states 2 No leg color.psd using Guid(5d61c34d819855c45bcd264d9e66e341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cdee90a1a3c30e4401090f36936e71c') in 0.063807 seconds 
+  Import took 0.068863 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
