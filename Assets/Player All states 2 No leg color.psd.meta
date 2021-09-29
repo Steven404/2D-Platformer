@@ -4,49 +4,52 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6566367364295426718
-    second: Player All states 2 No leg color_0
+    second: PlayerIdle01
   - first:
       213: -5573458815160303390
-    second: Player All states 2 No leg color_1
+    second: PlayerIdle02
   - first:
       213: 6364243713971121955
-    second: Player All states 2 No leg color_2
+    second: PlayerIdle03
   - first:
       213: -6737732724099133873
-    second: Player All states 2 No leg color_3
+    second: PlayerJump
   - first:
       213: 1216673135602977011
-    second: Player All states 2 No leg color_4
+    second: PlayerRun01
   - first:
       213: 6941728265553647668
-    second: Player All states 2 No leg color_5
+    second: PlayerRun02
   - first:
       213: -1319486880993333917
-    second: Player All states 2 No leg color_6
+    second: PlayerRun03
   - first:
       213: 970407816407396320
-    second: Player All states 2 No leg color_7
+    second: PlayerRun04
   - first:
       213: 4403802122158130534
-    second: Player All states 2 No leg color_8
+    second: PlayerRun05
   - first:
       213: -8659842680759537920
-    second: Player All states 2 No leg color_9
+    second: PlayerRun06
   - first:
       213: -579608174329930525
-    second: Player All states 2 No leg color_10
+    second: PlayerRun07
   - first:
       213: 5839666703876825148
-    second: Player All states 2 No leg color_11
+    second: PlayerRun08
   - first:
       213: 3214952901457633221
-    second: Player All states 2 No leg color_12
+    second: PlayerRun09
   - first:
       213: -792206470681042428
-    second: Player All states 2 No leg color_13
+    second: PlayerRun10
   - first:
       213: 3249897099112357694
-    second: Player All states 2 No leg color_14
+    second: PlayerRun11
+  - first:
+      213: -3413869622254592581
+    second: PlayerFall
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -77,7 +80,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,7 +128,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -149,7 +152,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -160,7 +163,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player All states 2 No leg color_0
+      name: PlayerIdle01
       rect:
         serializedVersion: 2
         x: 0
@@ -181,7 +184,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_1
+      name: PlayerIdle02
       rect:
         serializedVersion: 2
         x: 32
@@ -202,7 +205,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_2
+      name: PlayerIdle03
       rect:
         serializedVersion: 2
         x: 0
@@ -223,7 +226,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_3
+      name: PlayerJump
       rect:
         serializedVersion: 2
         x: 32
@@ -244,7 +247,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_4
+      name: PlayerRun01
       rect:
         serializedVersion: 2
         x: 0
@@ -265,7 +268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_5
+      name: PlayerRun02
       rect:
         serializedVersion: 2
         x: 32
@@ -286,7 +289,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_6
+      name: PlayerRun03
       rect:
         serializedVersion: 2
         x: 0
@@ -307,7 +310,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_7
+      name: PlayerRun04
       rect:
         serializedVersion: 2
         x: 32
@@ -328,7 +331,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_8
+      name: PlayerRun05
       rect:
         serializedVersion: 2
         x: 0
@@ -349,7 +352,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_9
+      name: PlayerRun06
       rect:
         serializedVersion: 2
         x: 32
@@ -370,7 +373,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_10
+      name: PlayerRun07
       rect:
         serializedVersion: 2
         x: 0
@@ -391,7 +394,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_11
+      name: PlayerRun08
       rect:
         serializedVersion: 2
         x: 32
@@ -412,7 +415,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_12
+      name: PlayerRun09
       rect:
         serializedVersion: 2
         x: 0
@@ -433,7 +436,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_13
+      name: PlayerRun10
       rect:
         serializedVersion: 2
         x: 32
@@ -454,7 +457,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player All states 2 No leg color_14
+      name: PlayerRun11
       rect:
         serializedVersion: 2
         x: 0
@@ -470,6 +473,27 @@ TextureImporter:
       bones: []
       spriteID: e3f1a256134f91d20800000000000000
       internalID: 3249897099112357694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerFall
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd94008aaf7f90d0800000000000000
+      internalID: -3413869622254592581
       vertices: []
       indices: 
       edges: []

@@ -8,20 +8,25 @@ public class PlayerMovementScript : MonoBehaviour
 
     private int variableJumpCounter;
 
+
     private bool isFacingRight = true;
-    private int facingDirection = 1;
-    private bool isWalking;
+    private bool isJumping;
+    private bool isFalling;
+    private bool isRunning;
     private bool isGrounded;
     private bool isTouchingWall;
     private bool isWallSliding;
     private bool isWallJumping;
     //private bool isDashing;
     private bool canDoubleJump;
+
+    private int facingDirection = 1;
+
     private float wallJumpTimeLeft;
     //private float dashTimeLeft;
     //private float lastDash;
 
-
+    private Animator animator;
 
     private int amountOfJumpsLeft;
 
@@ -62,6 +67,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
     }
@@ -71,8 +77,8 @@ public class PlayerMovementScript : MonoBehaviour
         CheckInput();
         CheckMovementDirection();
         CheckIfWallSliding();
+        UpdateAnimations();
         //CheckDash();
-
     }
 
     private void FixedUpdate() {
@@ -148,6 +154,26 @@ public class PlayerMovementScript : MonoBehaviour
         } else if(!isFacingRight && movementDirectionInput > 0 && !isWallJumping) {
             flip();
         }
+        if(isGrounded && rb.velocity.y <= 0.001f && movementDirectionInput !=0) {
+            isRunning = true;
+        } 
+        else {
+            isRunning = false;
+        }
+        if (rb.velocity.y > 0.1) {
+            isJumping = true;
+        }
+        else isJumping = false;
+        if (rb.velocity.y < 0.1 && !isGrounded) {
+            isFalling = true;
+        }
+        else isFalling = false;
+    }
+
+    private void UpdateAnimations() {
+        animator.SetBool("isRunning", isRunning);
+        animator.SetBool("isFalling", isFalling);
+        animator.SetBool("isJumping", isJumping);
     }
 
     private void flip() {
