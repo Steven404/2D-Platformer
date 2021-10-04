@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
 {
-    private float movementDirectionInput;
-
-    private int variableJumpCounter;
-
-
     private bool isFacingRight = true;
     private bool isJumping;
     private bool isFalling;
@@ -21,16 +16,20 @@ public class PlayerMovementScript : MonoBehaviour
     private bool canDoubleJump;
 
     private int facingDirection = 1;
+    private int variableJumpCounter;
 
+    private float groundRemember;
+    private float jumpRemember;
+    private float movementDirectionInput;
     private float wallJumpTimeLeft;
     //private float dashTimeLeft;
     //private float lastDash;
 
     private Animator animator;
 
-    private int amountOfJumpsLeft;
+    
 
-    private float jumpRemember;
+    
 
     [Header("For Ground Movement")]
     [SerializeField] public float movementSpeed;
@@ -40,15 +39,16 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] public float airMovementForce;
     [SerializeField] public float airDragMultiplier;
 
-   /* [Header("For Dashing")]
-    public float dashTime;
-    public float dashSpeed;
-    public float dashCooldown; */
+    /* [Header("For Dashing")]
+     public float dashTime;
+     public float dashSpeed;
+     public float dashCooldown; */
 
     [Header("For jumping")]
-    [SerializeField] public float jumpRememberTime = 0.35f;
+    [SerializeField] public float groundRemeberTime = 0.1f;
+    [SerializeField] public float jumpRememberTime = 0.2f;
     [SerializeField] public float jumpForce;
-    [SerializeField] public int amountOfJumps;
+    [SerializeField] public int amountOfJumps = 2;
     [SerializeField] public float groundCheckRadious;
     [SerializeField] public Transform groundCheck;
     [SerializeField] public LayerMask whatIsGround;
@@ -94,11 +94,15 @@ public class PlayerMovementScript : MonoBehaviour
         movementDirectionInput = Input.GetAxisRaw("Horizontal");
         jumpRemember -= Time.deltaTime;
         wallJumpTimeLeft -= Time.deltaTime;
+        groundRemember -= Time.deltaTime;
 
+        if (isGrounded) {
+            groundRemember = groundRemeberTime;
+        }
         if (Input.GetButtonDown("Jump")) {
             jumpRemember = jumpRememberTime;
         }
-        if ((jumpRemember > 0 && isGrounded) || ((isWallSliding) && jumpRemember > 0) || (jumpRemember > 0 && !isTouchingWall && canDoubleJump == true)) {
+        if ((jumpRemember > 0 && groundRemember > 0) || ((isWallSliding) && jumpRemember > 0) || (jumpRemember > 0 && !isTouchingWall && canDoubleJump == true)) {
             Jump();
         }
         if ((isWallSliding || isTouchingWall) && Input.GetButtonDown("Fire3")) {
@@ -154,17 +158,17 @@ public class PlayerMovementScript : MonoBehaviour
         } else if(!isFacingRight && movementDirectionInput > 0 && !isWallJumping) {
             flip();
         }
-        if(isGrounded && rb.velocity.y <= 0.001f && movementDirectionInput !=0) {
+        if(isGrounded && rb.velocity.y <= 0.01f && movementDirectionInput !=0) {
             isRunning = true;
         } 
         else {
             isRunning = false;
         }
-        if (rb.velocity.y > 0.1) {
+        if (rb.velocity.y > 0.01 && !isGrounded) {
             isJumping = true;
         }
         else isJumping = false;
-        if (rb.velocity.y < 0.1 && !isGrounded) {
+        if (rb.velocity.y < 0.01 && !isGrounded) {
             isFalling = true;
         }
         else isFalling = false;
@@ -186,11 +190,11 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void Jump() {
-        if (isGrounded) {
+        if (groundRemember > 0) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpRemember = 0;
             canDoubleJump = true;
-        } else if (!isWallSliding && !isWallJumping) {
+        } else if (!isWallSliding && !isWallJumping && groundRemember <= 0) {
             canDoubleJump = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpRemember = 0;
@@ -217,7 +221,6 @@ public class PlayerMovementScript : MonoBehaviour
             isWallJumping = false;
             canDoubleJump = true;
             variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
-            amountOfJumpsLeft = amountOfJumps;
             rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
         } else if (!isGrounded && !isWallSliding && movementDirectionInput != 0 && !isWallJumping){
             Vector2 forceToAdd = new Vector2(airMovementForce * movementDirectionInput, rb.velocity.y);

@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: 8204661270804914216
     second: Tiles whole_7
+  - first:
+      213: 7115767260389034413
+    second: Tiles whole_8
+  - first:
+      213: -4796416245155111946
+    second: Tiles whole_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -290,6 +296,48 @@ TextureImporter:
       bones: []
       spriteID: 8206bb4a4ffccd170800000000000000
       internalID: 8204661270804914216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles whole_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9c7d35f9840c260800000000000000
+      internalID: 7115767260389034413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles whole_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fbdd9866d4bf6db0800000000000000
+      internalID: -4796416245155111946
       vertices: []
       indices: 
       edges: []
