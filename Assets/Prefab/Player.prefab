@@ -73,10 +73,11 @@ GameObject:
   - component: {fileID: 8393233299449247040}
   - component: {fileID: 8393233299449247041}
   - component: {fileID: 8393233299449247042}
+  - component: {fileID: 829460391}
   - component: {fileID: 8393233299449247043}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,11 +210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 15
   rb: {fileID: 8393233299449247041}
-  airMovementForce: 85
+  airMovementForce: 80
   airDragMultiplier: 0.8
   groundRemeberTime: 0.05
   jumpRememberTime: 0.2
-  jumpForce: 25
+  jumpForce: 15
   amountOfJumps: 2
   groundCheckRadious: 0.175
   groundCheck: {fileID: 8393233299340883186}
@@ -223,12 +224,26 @@ MonoBehaviour:
   variableJumpHeightMultiplier: 0.5
   wallCheck: {fileID: 8393233298677128183}
   wallCheckDistance: 0.35
-  wallSlidingSpeed: 5
+  wallSlidingSpeed: 4
   wallHopForce: 10
   wallHopDirection: {x: 0.75, y: 0.5}
   wallJumpForce: 35
-  wallJumpDirection: {x: 1, y: 1.5}
+  wallJumpDirection: {x: 1, y: 2}
   wallJumpTimer: 0.3
+--- !u!114 &829460391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393233299449247069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475cca6c607e76846a35bf70d2842122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8393233299449247069}
+  RespawnPoint: {fileID: 0}
 --- !u!95 &8393233299449247043
 Animator:
   serializedVersion: 3

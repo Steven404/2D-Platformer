@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - LevelManagerScript
+    - PlayerDeath
     - PlayerMovementScript
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -33,8 +35,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -85,11 +89,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 2974}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 4044}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 4242}
+      Script: {instanceID: 2994}
+    - Class: 114
+      Script: {instanceID: 4048}
+    - Class: 114
+      Script: {instanceID: 4246}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -399,10 +407,22 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 04f7a41ceeca5e20e9b552c2a3bda0bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerDeath
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachinePipeline
+  - hash:
+      serializedVersion: 2
+      Hash: 73eecb5b87cc2b63d9221c341048e7f5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelManagerScript
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -657,7 +677,7 @@ ScriptsOnlyBuild:
     className: CinemachineTransposer
   - hash:
       serializedVersion: 2
-      Hash: 7b5cefc74897455ec45fc90030d4347c
+      Hash: 3d2c7d44c04a8a4c12185d34d9700dbb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovementScript
@@ -970,4 +990,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Level 1.unity
-  playerPath: E:/Unity Builds/2D platformer fast/2D Platformer.exe
+  playerPath: C:/Unity Builds/PC Build/2D plat/2D Platformer.exe

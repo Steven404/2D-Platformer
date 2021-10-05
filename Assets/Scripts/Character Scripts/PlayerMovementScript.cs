@@ -62,7 +62,7 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] public Vector2 wallHopDirection;
     [SerializeField] public float wallJumpForce;
     [SerializeField] public Vector2 wallJumpDirection;
-    [SerializeField] public float wallJumpTimer = 1.5f; // allowing the player to controller the player after a specified time
+    [SerializeField] public float wallJumpTimer; // allowing the player to controller the player after a specified time
 
 
     void Start() {
@@ -84,10 +84,6 @@ public class PlayerMovementScript : MonoBehaviour
     private void FixedUpdate() {
         ApplyMovement();
         CheckSurroundings();
-    }
-
-    public void LateUpdate() {
-        //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z);
     }
 
     private void CheckInput() {
@@ -191,7 +187,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void Jump() {
         if (groundRemember > 0) {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
             jumpRemember = 0;
             canDoubleJump = true;
         } else if (!isWallSliding && !isWallJumping && groundRemember <= 0) {
@@ -222,10 +218,10 @@ public class PlayerMovementScript : MonoBehaviour
             canDoubleJump = true;
             variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
             rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
-        } else if (!isGrounded && !isWallSliding && movementDirectionInput != 0 && !isWallJumping){
-            Vector2 forceToAdd = new Vector2(airMovementForce * movementDirectionInput, rb.velocity.y);
+        } else if (!isGrounded && !isWallSliding && movementDirectionInput != 0 && !isWallJumping) {
+            Vector2 forceToAdd = new Vector2(airMovementForce * movementDirectionInput, 0);
             rb.AddForce(forceToAdd);
-            if (Mathf.Abs(rb.velocity.x) > movementSpeed) {
+            if (Mathf.Abs(rb.velocity.x) > movementSpeed && wallJumpTimeLeft <= - 0.4) {
                 rb.velocity = new Vector2(movementSpeed * movementDirectionInput, rb.velocity.y);
             }
         } else if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
