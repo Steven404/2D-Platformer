@@ -213,27 +213,25 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void ApplyMovement() {
-        if (isGrounded && rb.velocity.y <= 0.001f) {
-            isWallJumping = false;
-            canDoubleJump = true;
-            variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
-            rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
-        } else if (!isGrounded && !isWallSliding && movementDirectionInput != 0 && !isWallJumping) {
-            Vector2 forceToAdd = new Vector2(airMovementForce * movementDirectionInput, 0);
-            rb.AddForce(forceToAdd);
-            if (Mathf.Abs(rb.velocity.x) > movementSpeed && wallJumpTimeLeft <= - 0.4) {
-                rb.velocity = new Vector2(movementSpeed * movementDirectionInput, rb.velocity.y);
-            }
-        } else if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
+        if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
+        else if (!isWallJumping){
+            rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
+        }
+        if (isGrounded) {
+                canDoubleJump = true; 
+                isWallJumping = false;
+                canDoubleJump = true;
+                variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
+        }
         if (wallJumpTimeLeft <= 0) {
-            isWallJumping = false;
+                isWallJumping = false;
         }
         if (isWallSliding) {
             if (rb.velocity.y < -wallSlidingSpeed) {
-                isWallJumping = false;
-                rb.velocity = new Vector2(0, -wallSlidingSpeed);
+                    isWallJumping = false;
+                    rb.velocity = new Vector2(0, -wallSlidingSpeed);
             }
         }
     }
