@@ -236,6 +236,12 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Coin")){
+            Destroy(other.gameObject);
+        }
+    }
+
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadious);
         Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));

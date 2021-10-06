@@ -136,7 +136,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1728418213
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: -2
   m_Sprite: {fileID: -6566367364295426718, guid: 5d61c34d819855c45bcd264d9e66e341, type: 3}
   m_Color: {r: 1, g: 0.8394082, b: 0.495283, a: 1}
@@ -210,11 +210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 15
   rb: {fileID: 8393233299449247041}
-  airMovementForce: 80
-  airDragMultiplier: 0.8
-  groundRemeberTime: 0.05
+  airMovementForce: 30
+  airDragMultiplier: 0.95
+  groundRemeberTime: 0.15
   jumpRememberTime: 0.2
-  jumpForce: 15
+  jumpForce: 25
   amountOfJumps: 2
   groundCheckRadious: 0.175
   groundCheck: {fileID: 8393233299340883186}
@@ -229,7 +229,7 @@ MonoBehaviour:
   wallHopDirection: {x: 0.75, y: 0.5}
   wallJumpForce: 35
   wallJumpDirection: {x: 1, y: 2}
-  wallJumpTimer: 0.3
+  wallJumpTimer: 0.25
 --- !u!114 &829460391
 MonoBehaviour:
   m_ObjectHideFlags: 0

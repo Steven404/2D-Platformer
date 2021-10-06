@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tutorial
   - Lava
+  - Coin
   layers:
   - Default
   - TransparentFX
