@@ -15,6 +15,10 @@ public class LevelManagerScript : MonoBehaviour
         instance = this;
     }
 
+    public void Start() {
+        TimeController.instance.BeginTimer();
+    }
+
     public void Respawn() {
         Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
     }
