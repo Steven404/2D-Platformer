@@ -240,7 +240,12 @@ public class PlayerMovementScript : MonoBehaviour
         if (other.gameObject.CompareTag("Coin")){
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("EndCoin")) {
+            Destroy(other.gameObject);
+            TimeController.instance.PauseTimer();
+        }
     }
+
 
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadious);
