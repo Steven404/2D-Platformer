@@ -10,6 +10,9 @@ public class TimeController : MonoBehaviour
 
     public TextMeshProUGUI timeCounter;
 
+    public TextMeshProUGUI timeNeeded;
+
+
     private TimeSpan timePlaying;
     private bool timerRunning;
 
@@ -37,8 +40,15 @@ public class TimeController : MonoBehaviour
     public void BeginTimer() {
         timerRunning = true;
         elapsedTime = 0f;
-
         StartCoroutine(UpdateTimer());
+    }
+
+    public void EndTimer() {
+        ScoreManagerScript.instance.LevelEnded();
+        timePlaying = TimeSpan.FromSeconds(elapsedTime);
+        timerRunning = false;
+        timeNeeded.text = "Time: " + timePlaying.ToString("mm'.'ss'.'ff");
+        Time.timeScale = 0f;
     }
     
     private IEnumerator UpdateTimer() {
