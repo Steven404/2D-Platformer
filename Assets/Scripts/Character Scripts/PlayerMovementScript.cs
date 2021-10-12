@@ -14,6 +14,7 @@ public class PlayerMovementScript : MonoBehaviour
     private bool isWallJumping;
     //private bool isDashing;
     private bool canDoubleJump;
+    public static bool canMove;
 
     private int facingDirection = 1;
     private int variableJumpCounter;
@@ -26,10 +27,6 @@ public class PlayerMovementScript : MonoBehaviour
     //private float lastDash;
 
     private Animator animator;
-
-    
-
-    
 
     [Header("For Ground Movement")]
     [SerializeField] public float movementSpeed;
@@ -74,7 +71,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Update()
     {
-        CheckInput();
+        if (canMove) CheckInput();
         CheckMovementDirection();
         CheckIfWallSliding();
         UpdateAnimations();

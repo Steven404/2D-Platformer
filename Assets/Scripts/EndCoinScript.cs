@@ -11,6 +11,7 @@ public class EndCoinScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             TimeController.instance.EndTimer();
             EndPanel.SetActive(true);
+            PlayerMovementScript.canMove = false;
         }
     }
 
