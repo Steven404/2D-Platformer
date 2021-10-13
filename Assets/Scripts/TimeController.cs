@@ -6,6 +6,12 @@ using TMPro;
 
 public class TimeController : MonoBehaviour
 {
+    public GameObject ExitButton;
+
+    public GameObject ContinueButton;
+
+    public GameObject EndPanel;
+
     public static TimeController instance;
 
     public TextMeshProUGUI timeCounter;
@@ -44,11 +50,23 @@ public class TimeController : MonoBehaviour
     }
 
     public void EndTimer() {
-        ScoreManagerScript.instance.LevelEnded();
-        timePlaying = TimeSpan.FromSeconds(elapsedTime);
+        PlayerMovementScript.canMove = false;
         timerRunning = false;
+        StartCoroutine(EndLevel());
+    }
+
+    private IEnumerator EndLevel() {
+        yield return new WaitForSeconds(2);
+        timePlaying = TimeSpan.FromSeconds(elapsedTime);
+        EndPanel.SetActive(true);
+        yield return new WaitForSeconds(1);
         timeNeeded.text = "Time: " + timePlaying.ToString("mm'.'ss'.'ff");
-        Time.timeScale = 0f;
+        yield return new WaitForSeconds(1);
+        ScoreManagerScript.instance.LevelEnded();
+        yield return new WaitForSeconds(1);
+        ExitButton.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        ContinueButton.SetActive(true);
     }
     
     private IEnumerator UpdateTimer() {
@@ -57,8 +75,7 @@ public class TimeController : MonoBehaviour
             timePlaying = TimeSpan.FromSeconds(elapsedTime);
             string timePlayingStr = "Time: " + timePlaying.ToString("mm'.'ss'.'ff");
             timeCounter.text = timePlayingStr;
-            
             yield return timePlayingStr;
+            }
         }
     }
-}

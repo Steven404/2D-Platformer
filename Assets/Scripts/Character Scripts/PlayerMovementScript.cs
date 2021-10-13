@@ -71,7 +71,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Update()
     {
-        if (canMove) CheckInput();
+        CheckInput();
         CheckMovementDirection();
         CheckIfWallSliding();
         UpdateAnimations();
@@ -146,25 +146,30 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void CheckMovementDirection() {
-        if(isFacingRight && movementDirectionInput < 0 && !isWallJumping) {
+        if(isFacingRight && movementDirectionInput < 0 && !isWallJumping && canMove) {
             flip();
-        } else if(!isFacingRight && movementDirectionInput > 0 && !isWallJumping) {
+        } else if(!isFacingRight && movementDirectionInput > 0 && !isWallJumping && canMove) {
             flip();
         }
-        if(isGrounded && rb.velocity.y <= 0.01f && movementDirectionInput !=0) {
+        if(isGrounded && rb.velocity.y <= 0.01f && movementDirectionInput !=0 && canMove) {
             isRunning = true;
         } 
         else {
             isRunning = false;
         }
-        if (rb.velocity.y > 0.01 && !isGrounded) {
+        if (rb.velocity.y > 0.01 && !isGrounded && canMove) {
             isJumping = true;
         }
         else isJumping = false;
-        if (rb.velocity.y < 0.01 && !isGrounded) {
+        if (rb.velocity.y < 0.01 && !isGrounded && canMove) {
             isFalling = true;
         }
         else isFalling = false;
+        if (!canMove) {
+            isRunning = false;
+            isJumping = false;
+            isFalling = false;
+        }
     }
 
     private void UpdateAnimations() {
@@ -179,7 +184,6 @@ public class PlayerMovementScript : MonoBehaviour
             isFacingRight = !isFacingRight;
             transform.Rotate(0.0f, 180.0f, 0.0f);
         }
-        
     }
 
     private void Jump() {
@@ -210,28 +214,34 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void ApplyMovement() {
-        if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
-            rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
-        }
-        else if (!isWallJumping){
-            rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
-        }
-        if (isGrounded) {
-                canDoubleJump = true; 
+        if (canMove) {
+            if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
+                rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
+            }
+            else if (!isWallJumping) {
+                rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
+            }
+            if (isGrounded) {
+                canDoubleJump = true;
                 isWallJumping = false;
                 canDoubleJump = true;
                 variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
-        }
-        if (wallJumpTimeLeft <= 0) {
+            }
+            if (wallJumpTimeLeft <= 0) {
                 isWallJumping = false;
-        }
-        if (isWallSliding) {
-            if (rb.velocity.y < -wallSlidingSpeed) {
+            }
+            if (isWallSliding) {
+                if (rb.velocity.y < -wallSlidingSpeed) {
                     isWallJumping = false;
                     rb.velocity = new Vector2(0, -wallSlidingSpeed);
+                }
             }
         }
+        else {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
+   
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Coin")){

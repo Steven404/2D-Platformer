@@ -40,5 +40,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GamePaused = false;
         PlayerMovementScript.canMove = false;
+
     }
 }
