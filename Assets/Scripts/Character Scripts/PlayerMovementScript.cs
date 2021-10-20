@@ -183,9 +183,10 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void Jump() {
         if (groundRemember > 0) {
-            rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            groundRemember = -1;
             jumpRemember = 0;
-            canDoubleJump = true;
+            
         } else if (!isWallSliding && !isWallJumping && groundRemember <= 0) {
             canDoubleJump = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
