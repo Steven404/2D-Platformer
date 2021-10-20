@@ -6,11 +6,17 @@ using TMPro;
 
 public class TimeController : MonoBehaviour
 {
+    public GameObject InGameCanvas;
+
     public GameObject ExitButton;
 
     public GameObject ContinueButton;
 
     public GameObject EndPanel;
+
+    public GameObject TimeText;
+
+    public GameObject CoinText;
 
     public static TimeController instance;
 
@@ -27,6 +33,8 @@ public class TimeController : MonoBehaviour
     private void Awake() {
         instance = this;
     }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,16 +65,26 @@ public class TimeController : MonoBehaviour
 
     private IEnumerator EndLevel() {
         yield return new WaitForSeconds(2);
+        InGameCanvas.SetActive(false);
+        yield return new WaitForSeconds(1);
         timePlaying = TimeSpan.FromSeconds(elapsedTime);
         EndPanel.SetActive(true);
         yield return new WaitForSeconds(1);
+        TimeText.SetActive(true);
+        yield return new WaitForSeconds(1f);
         timeNeeded.text = "Time: " + timePlaying.ToString("mm'.'ss'.'ff");
         yield return new WaitForSeconds(1);
+        CoinText.SetActive(true);
+        yield return new WaitForSeconds(1f);
         ScoreManagerScript.instance.LevelEnded();
         yield return new WaitForSeconds(1);
         ExitButton.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         ContinueButton.SetActive(true);
+    }
+
+    public float returnTime() {
+        return elapsedTime;
     }
     
     private IEnumerator UpdateTimer() {

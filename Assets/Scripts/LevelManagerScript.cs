@@ -27,4 +27,10 @@ public class LevelManagerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         playerPrefab.SetActive(true);
     }
+
+    public void SetHighscore() {
+        PlayerPrefs.SetInt("Highscore", TimeController.instance.returnTime());
+        highscore.text = PlayerPrefs.GetInt("Highscore").ToString();
+
+    }
 }

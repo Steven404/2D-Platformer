@@ -10,17 +10,8 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Lava")) {
-            Destroy(player);
+            player.SetActive(false);
             DeathPanel.SetActive(true);
-        }
-    }
-
-    private void Update() {
-        if (DeathPanel.active) {
-            Debug.Log("sex");
-            if (Input.GetButtonDown("Space") || Input.GetButtonDown("Enter")) {
-                LevelManagerScript.instance.Restart();
-            }
         }
     }
 }
