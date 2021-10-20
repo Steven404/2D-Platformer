@@ -161,15 +161,10 @@ public class PlayerMovementScript : MonoBehaviour
             isJumping = true;
         }
         else isJumping = false;
-        if (rb.velocity.y < 0.01 && !isGrounded && canMove) {
+        if (rb.velocity.y < 0.01 && !isGrounded) {
             isFalling = true;
         }
         else isFalling = false;
-        if (!canMove) {
-            isRunning = false;
-            isJumping = false;
-            isFalling = false;
-        }
     }
 
     private void UpdateAnimations() {

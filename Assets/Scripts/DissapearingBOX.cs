@@ -14,7 +14,7 @@ public class DissapearingBOX : MonoBehaviour
     }
 
     private IEnumerator Dissapear() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         DissapearingBox.SetActive(false);
     }
 

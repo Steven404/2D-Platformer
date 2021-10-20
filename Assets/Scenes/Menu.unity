@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 414401946}
   - component: {fileID: 414401945}
   - component: {fileID: 414401948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 767047932}
   - component: {fileID: 767047931}
   - component: {fileID: 767047930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DissapearingBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
