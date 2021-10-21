@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,11 +27,5 @@ public class LevelManagerScript : MonoBehaviour
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         playerPrefab.SetActive(true);
-    }
-
-    public void SetHighscore() {
-        PlayerPrefs.SetInt("Highscore", TimeController.instance.returnTime());
-        highscore.text = PlayerPrefs.GetInt("Highscore").ToString();
-
     }
 }

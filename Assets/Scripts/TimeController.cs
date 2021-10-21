@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimeController : MonoBehaviour
 {
+    public TimeSpan BestTime;
+
     public GameObject InGameCanvas;
 
     public GameObject ExitButton;
@@ -14,11 +17,15 @@ public class TimeController : MonoBehaviour
 
     public GameObject EndPanel;
 
+    public GameObject BestTimeText;
+
     public GameObject TimeText;
 
     public GameObject CoinText;
 
     public static TimeController instance;
+
+    public TextMeshProUGUI BestTimeTMP;
 
     public TextMeshProUGUI timeCounter;
 
@@ -39,7 +46,7 @@ public class TimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeCounter.text = "Time: 00:00:00";
+        timeCounter.text = "Time: 00:00.00";
         timerRunning = false; 
     }
 
@@ -58,12 +65,14 @@ public class TimeController : MonoBehaviour
     }
 
     public void EndTimer() {
+        HighScore();
         PlayerMovementScript.canMove = false;
         timerRunning = false;
         StartCoroutine(EndLevel());
     }
 
     private IEnumerator EndLevel() {
+        BestTime = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("Highscore " + SceneManager.GetActiveScene().name));
         yield return new WaitForSeconds(2);
         InGameCanvas.SetActive(false);
         yield return new WaitForSeconds(1);
@@ -71,8 +80,10 @@ public class TimeController : MonoBehaviour
         EndPanel.SetActive(true);
         yield return new WaitForSeconds(1);
         TimeText.SetActive(true);
+        BestTimeText.SetActive(true);
         yield return new WaitForSeconds(1f);
-        timeNeeded.text = "Time: " + timePlaying.ToString("mm'.'ss'.'ff");
+        timeNeeded.text = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
+        BestTimeTMP.text = "Best Time: " + BestTime.ToString("mm':'ss'.'ff");
         yield return new WaitForSeconds(1);
         CoinText.SetActive(true);
         yield return new WaitForSeconds(1f);
@@ -83,7 +94,15 @@ public class TimeController : MonoBehaviour
         ContinueButton.SetActive(true);
     }
 
-    public float returnTime() {
+    public void HighScore() {
+        TimeSpan Time = TimeSpan.FromSeconds(elapsedTime);
+        BestTime = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("Highscore " + SceneManager.GetActiveScene().name));
+        if (Time < BestTime) {
+            PlayerPrefs.SetFloat("Highscore " + SceneManager.GetActiveScene().name, getTime());
+        }
+    }
+
+    public float getTime() {
         return elapsedTime;
     }
     
