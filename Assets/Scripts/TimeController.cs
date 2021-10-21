@@ -46,6 +46,12 @@ public class TimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bool highScoreWritten = PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + " best time:");
+        float btime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " best time:");
+        Debug.Log(btime);
+        if (btime < 7 || highScoreWritten == false) {
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " best time:", 9000);
+        }
         timeCounter.text = "Time: 00:00.00";
         timerRunning = false; 
     }
@@ -72,7 +78,7 @@ public class TimeController : MonoBehaviour
     }
 
     private IEnumerator EndLevel() {
-        BestTime = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("Highscore " + SceneManager.GetActiveScene().name));
+        BestTime = TimeSpan.FromSeconds(PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " best time:"));
         yield return new WaitForSeconds(2);
         InGameCanvas.SetActive(false);
         yield return new WaitForSeconds(1);
@@ -96,14 +102,11 @@ public class TimeController : MonoBehaviour
 
     public void HighScore() {
         TimeSpan Time = TimeSpan.FromSeconds(elapsedTime);
-        BestTime = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("Highscore " + SceneManager.GetActiveScene().name));
+        BestTime = TimeSpan.FromSeconds(PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " best time:"));
         if (Time < BestTime) {
-            PlayerPrefs.SetFloat("Highscore " + SceneManager.GetActiveScene().name, getTime());
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " best time:", elapsedTime);
+            PlayerPrefs.Save();
         }
-    }
-
-    public float getTime() {
-        return elapsedTime;
     }
     
     private IEnumerator UpdateTimer() {
