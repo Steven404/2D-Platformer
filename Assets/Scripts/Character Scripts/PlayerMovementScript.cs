@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private int facingDirection = 1;
     private int variableJumpCounter;
+    private int amountOfJumpsLeft;
 
     private float groundRemember;
     private float jumpRemember;
@@ -63,6 +65,8 @@ public class PlayerMovementScript : MonoBehaviour
 
 
     void Start() {
+        if (!SceneManager.GetActiveScene().name.Equals("Menu")) canMove = true;
+        amountOfJumpsLeft = amountOfJumps;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         wallHopDirection.Normalize();
@@ -95,7 +99,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetButtonDown("Jump")) {
             jumpRemember = jumpRememberTime;
         }
-        if (canMove && (jumpRemember > 0 && groundRemember > 0) || ((isWallSliding) && jumpRemember > 0) || (jumpRemember > 0 && !isTouchingWall && canDoubleJump == true)) {
+        if (canMove && (jumpRemember > 0 && groundRemember > 0) || ((isWallSliding) && jumpRemember > 0) || (jumpRemember > 0 && !isTouchingWall && canDoubleJump == true && amountOfJumpsLeft > 0)) {
             Jump();
         }
         if ((isWallSliding || isTouchingWall) && Input.GetButtonDown("Fire3")) {
@@ -186,13 +190,15 @@ public class PlayerMovementScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             groundRemember = -1;
             jumpRemember = 0;
-            
-        } else if (!isWallSliding && !isWallJumping && groundRemember <= 0) {
+            amountOfJumpsLeft--;
+        } else if (!isWallSliding && !isWallJumping) {
             canDoubleJump = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpRemember = 0;
+            amountOfJumpsLeft--;
         }
         else if ((isWallSliding || isTouchingWall)) {
+            amountOfJumpsLeft = amountOfJumps;
             canDoubleJump = true;
             wallJumpTimeLeft = wallJumpTimer;
             isWallJumping = true;
@@ -218,6 +224,7 @@ public class PlayerMovementScript : MonoBehaviour
                 rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
             }
             if (isGrounded) {
+                amountOfJumpsLeft = amountOfJumps;
                 canDoubleJump = true;
                 isWallJumping = false;
                 canDoubleJump = true;
