@@ -136,7 +136,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1728418213
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -6566367364295426718, guid: 5d61c34d819855c45bcd264d9e66e341, type: 3}
   m_Color: {r: 1, g: 0.8394082, b: 0.495283, a: 1}
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377918617e410de4ab1b74c190d77f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8393233299449247069}
   movementSpeed: 15
   rb: {fileID: 8393233299449247041}
   airMovementForce: 30
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8393233299449247069}
   RespawnPoint: {fileID: 0}
+  DeathPanel: {fileID: 0}
 --- !u!95 &8393233299449247043
 Animator:
   serializedVersion: 3

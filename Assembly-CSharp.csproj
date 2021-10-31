@@ -67,13 +67,14 @@
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Scripts\Character Scripts\PlayerMovementScript.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-    <Compile Include="Assets\Scripts\CoinScript.cs" />
-    <Compile Include="Assets\Scripts\DissapearingBOX.cs" />
-    <Compile Include="Assets\Scripts\Parallax.cs" />
+    <Compile Include="Assets\Scripts\Asset Scripts\CoinScript.cs" />
+    <Compile Include="Assets\Scripts\Asset Scripts\DissapearingBOX.cs" />
+    <Compile Include="Assets\Scripts\Asset Scripts\Parallax.cs" />
     <Compile Include="Assets\Scripts\TimerScript.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Scripts\ScoreManagerScript.cs" />
-    <Compile Include="Assets\Scripts\EndCoinScript.cs" />
+    <Compile Include="Assets\Scripts\Asset Scripts\EndCoinScript.cs" />
+    <Compile Include="Assets\PlatformMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

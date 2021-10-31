@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementScript : MonoBehaviour
 {
+    public GameObject player;
+
     private bool isFacingRight = true;
     private bool isJumping;
     private bool isFalling;
@@ -83,8 +85,8 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        ApplyMovement();
-        CheckSurroundings();
+         ApplyMovement();
+         CheckSurroundings();
     }
 
     private void CheckInput() {
@@ -215,13 +217,16 @@ public class PlayerMovementScript : MonoBehaviour
         isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
     }
 
-    private void ApplyMovement() {
+        private void ApplyMovement() {
         if (canMove) {
             if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
                 rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
             }
             else if (!isWallJumping) {
                 rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
+                if (Mathf.Abs(rb.velocity.x) > movementSpeed) {
+                    rb.velocity = new Vector2(movementSpeed * movementDirectionInput, rb.velocity.y);
+                }
             }
             if (isGrounded) {
                 amountOfJumpsLeft = amountOfJumps;
@@ -253,6 +258,18 @@ public class PlayerMovementScript : MonoBehaviour
         if (other.gameObject.CompareTag("EndCoin")) {
             Destroy(other.gameObject);
             TimeController.instance.PauseTimer();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Platform")) {
+            transform.parent = other.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Platform")) {
+            transform.parent = null;
         }
     }
 
