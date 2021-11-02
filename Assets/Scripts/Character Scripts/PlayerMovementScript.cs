@@ -81,12 +81,12 @@ public class PlayerMovementScript : MonoBehaviour
         CheckMovementDirection();
         CheckIfWallSliding();
         UpdateAnimations();
+        CheckSurroundings();
         //CheckDash();
     }
 
     private void FixedUpdate() {
-         ApplyMovement();
-         CheckSurroundings();
+        ApplyMovement();
     }
 
     private void CheckInput() {
@@ -201,7 +201,6 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else if ((isWallSliding || isTouchingWall)) {
             amountOfJumpsLeft = amountOfJumps;
-            canDoubleJump = true;
             wallJumpTimeLeft = wallJumpTimer;
             isWallJumping = true;
             isWallSliding = false;

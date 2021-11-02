@@ -31,4 +31,19 @@ public class PlatformMove : MonoBehaviour
         }
     }
 
+    //code for teleporting platform
+
+    //private bool run
+
+    /*private IEnumerator MoveToNextPoint() {
+        while (run) {
+            platform.position = Vector2.MoveTowards(platform.position, points[goalPoint].position, speed * Time.deltaTime);
+            if (Vector2.Distance(platform.position, points[goalPoint].position) < 0.1f) {
+                if (goalPoint == points.Count - 1) goalPoint = 0;
+                else goalPoint++;
+                yield return new WaitForSeconds(2);
+            }
+        }
+
+    }*/
 }
