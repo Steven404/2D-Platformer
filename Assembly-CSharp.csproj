@@ -75,6 +75,7 @@
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Scripts\ScoreManagerScript.cs" />
     <Compile Include="Assets\Scripts\Asset Scripts\EndCoinScript.cs" />
+    <Compile Include="Assets\Scripts\Asset Scripts\ParallaxSimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -49,6 +49,9 @@ TagManager:
   - name: Background
     uniqueID: 1587374353
     locked: 0
+  - name: Snow
+    uniqueID: 1917779713
+    locked: 0
   - name: Forground
     uniqueID: 4195851807
     locked: 0

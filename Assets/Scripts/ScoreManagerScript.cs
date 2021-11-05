@@ -22,7 +22,7 @@ public class ScoreManagerScript : MonoBehaviour
 
     public void ChangeScore(int coinValue) {
         score += coinValue;
-        text1.text = score.ToString() + "/" + totalCoins.ToString();
+        text1.text = score.ToString();
     }
 
     public void LevelEnded() {
