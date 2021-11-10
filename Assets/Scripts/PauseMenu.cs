@@ -42,4 +42,8 @@ public class PauseMenu : MonoBehaviour
         PlayerMovementScript.canMove = false;
 
     }
+
+    public void LoadNextLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

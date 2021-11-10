@@ -5,13 +5,13 @@ public class ScoreManagerScript : MonoBehaviour
 {
     public static ScoreManagerScript instance;
     
-    public TextMeshProUGUI text1;
+    public TextMeshProUGUI CoinText;
 
     public TextMeshProUGUI endTextCoins;
 
     public int totalCoins;
 
-    int score = 0;
+    int lmao = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +21,11 @@ public class ScoreManagerScript : MonoBehaviour
     }
 
     public void ChangeScore(int coinValue) {
-        score += coinValue;
-        text1.text = score.ToString();
+        lmao += coinValue;
+        CoinText.text = lmao.ToString();
     }
 
     public void LevelEnded() {
-        endTextCoins.text = "Coins collected: " + score.ToString() + "/" + totalCoins.ToString();
+        endTextCoins.text = "Coins collected: " + lmao.ToString() + "/" + totalCoins.ToString();
     }
 }

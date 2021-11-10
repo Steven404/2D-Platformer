@@ -53,7 +53,6 @@ public class TimeController : MonoBehaviour
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " best time:", 9000);
         }
         timeCounter.text = "Time: 00:00.00";
-        timerRunning = false; 
     }
 
     public void ResumeTimer() {
