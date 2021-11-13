@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - EndCoin
   - Platform
+  - Snow
   layers:
   - Default
   - TransparentFX
