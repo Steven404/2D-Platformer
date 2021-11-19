@@ -11,21 +11,22 @@ public class ScoreManagerScript : MonoBehaviour
 
     public int totalCoins;
 
-    int lmao = 0;
+    int score;
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerMovementScript.canMove = true;
         instance = this;
+        score = 0;
     }
 
     public void ChangeScore(int coinValue) {
-        lmao += coinValue;
-        CoinText.text = lmao.ToString();
+        score += coinValue;
+        CoinText.text = score.ToString();
     }
 
     public void LevelEnded() {
-        endTextCoins.text = "Coins collected: " + lmao.ToString() + "/" + totalCoins.ToString();
+        endTextCoins.text = "Coins collected: " + score.ToString() + "/" + totalCoins.ToString();
     }
 }
