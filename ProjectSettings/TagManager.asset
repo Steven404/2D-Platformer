@@ -10,6 +10,7 @@ TagManager:
   - EndCoin
   - Platform
   - Snow
+  - Main Ground
   layers:
   - Default
   - TransparentFX

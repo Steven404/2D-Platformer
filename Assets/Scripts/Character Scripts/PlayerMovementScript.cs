@@ -101,7 +101,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetButtonDown("Jump")) {
             jumpRemember = jumpRememberTime;
         }
-        if (canMove && (jumpRemember > 0 && groundRemember > 0) || ((isWallSliding) && jumpRemember > 0) || (jumpRemember > 0 && !isTouchingWall && canDoubleJump == true && amountOfJumpsLeft > 0)) {
+        if (canMove && ((jumpRemember > 0 && groundRemember > 0) || ((isWallSliding) && jumpRemember > 0) || (jumpRemember > 0 && !isTouchingWall && canDoubleJump == true && amountOfJumpsLeft > 0))) {
             Jump();
         }
         if ((isWallSliding || isTouchingWall) && Input.GetButtonDown("Fire3")) {
