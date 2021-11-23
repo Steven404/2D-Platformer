@@ -54,18 +54,18 @@ TagManager:
   - name: Snow
     uniqueID: 1917779713
     locked: 0
-  - name: Forground
-    uniqueID: 4195851807
+  - name: Dangers
+    uniqueID: 2938248557
     locked: 0
   - name: Coins
     uniqueID: 832748535
+    locked: 0
+  - name: Forground
+    uniqueID: 4195851807
     locked: 0
   - name: Player
     uniqueID: 2566549083
     locked: 0
   - name: InGameUI
     uniqueID: 446688365
-    locked: 0
-  - name: Dangers
-    uniqueID: 2938248557
     locked: 0

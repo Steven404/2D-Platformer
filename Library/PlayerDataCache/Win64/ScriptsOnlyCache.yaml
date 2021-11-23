@@ -58,7 +58,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateEditor
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
@@ -465,6 +464,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2902}
     - Class: 114
+      Script: {instanceID: 2926}
+    - Class: 114
       Script: {instanceID: 2976}
     - Class: 114
       Script: {instanceID: 2998}
@@ -472,6 +473,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3014}
     - Class: 114
       Script: {instanceID: 3032}
+    - Class: 114
+      Script: {instanceID: 3420}
     - Class: 114
       Script: {instanceID: 3542}
     - Class: 114
@@ -576,6 +579,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2902}
     - Class: 114
+      Script: {instanceID: 2926}
+    - Class: 114
       Script: {instanceID: 2976}
     - Class: 114
       Script: {instanceID: 2998}
@@ -583,6 +588,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3014}
     - Class: 114
       Script: {instanceID: 3032}
+    - Class: 114
+      Script: {instanceID: 3420}
     - Class: 114
       Script: {instanceID: 3542}
     - Class: 114

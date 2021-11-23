@@ -6,12 +6,21 @@ using UnityEngine.UI;
 public class LevelLoader : MonoBehaviour {
     public GameObject LoadSceen;
 
+    public GameObject MainMenuCanvas;
+    
+    public GameObject LevelCanvas;
+
     public Slider slider;
 
     public static LevelLoader instance;
 
     private void Awake() {
         instance = this;
+    }
+
+    public void ShowLevelCanvas() {
+        MainMenuCanvas.SetActive(false);
+        LevelCanvas.SetActive(true);
     }
 
     public void LoadScene(int sceneIndex) {
