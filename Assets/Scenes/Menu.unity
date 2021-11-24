@@ -972,6 +972,7 @@ GameObject:
   - component: {fileID: 573401105}
   - component: {fileID: 573401106}
   - component: {fileID: 573401107}
+  - component: {fileID: 573401108}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1081,6 +1082,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 743159234}
   time: 4.5
+--- !u!114 &573401108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573401100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac1195632096364d935eb9db9e41b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level2Button: {fileID: 336972889}
+  Level3Button: {fileID: 1106182957}
 --- !u!1 &653444669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,7 +2655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7364219703558897694, guid: 5a3b8ba29e8681b4c86304c028ef3641, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7364219703558897694, guid: 5a3b8ba29e8681b4c86304c028ef3641, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3139,7 +3154,7 @@ RectTransform:
   - {fileID: 1473668390}
   - {fileID: 1926664122}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

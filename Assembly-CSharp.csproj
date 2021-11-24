@@ -61,6 +61,7 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Scripts\LevelRestartAfterDying.cs" />
     <Compile Include="Assets\Scripts\AnimatorEnable.cs" />
+    <Compile Include="Assets\SpikesWithGround.cs" />
     <Compile Include="Assets\Scripts\Character Scripts\PlayerDeath.cs" />
     <Compile Include="Assets\Scripts\LevelManagerScript.cs" />
     <Compile Include="Assets\Scripts\Asset Scripts\ParallaxSimple.cs" />
@@ -77,7 +78,9 @@
     <Compile Include="Assets\Scripts\ScoreManagerScript.cs" />
     <Compile Include="Assets\Scripts\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\Asset Scripts\EndCoinScript.cs" />
-    <Compile Include="Assets\SpikesWithGround.cs" />
+    <Compile Include="Assets\SaveSystem.cs" />
+    <Compile Include="Assets\PlayerPrefsEditor\SimpleEncryption.cs" />
+    <Compile Include="Assets\PlayerPrefsEditor\PlayerPrefsUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -94,6 +97,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\PlayerPrefsEditor\README.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

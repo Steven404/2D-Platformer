@@ -57,6 +57,8 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Editor\FloatingJoystickEditor.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Editor\JoystickEditor.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Editor\DynamicJoystickEditor.cs" />
+    <Compile Include="Assets\PlayerPrefsEditor\Editor\PlayerPrefsEditor.cs" />
+    <Compile Include="Assets\PlayerPrefsEditor\Editor\Mac\Plist.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
