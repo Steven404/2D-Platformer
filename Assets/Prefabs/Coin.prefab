@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 1
+  coinSound: {fileID: 8300000, guid: ca5f37ceb54cead4bab99031287f8943, type: 3}
