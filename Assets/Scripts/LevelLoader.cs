@@ -7,8 +7,10 @@ public class LevelLoader : MonoBehaviour {
     public GameObject LoadSceen;
 
     public GameObject MainMenuCanvas;
-    
+
     public GameObject LevelCanvas;
+
+    public GameObject HighScoresCanvas;
 
     public Slider slider;
 
@@ -21,6 +23,17 @@ public class LevelLoader : MonoBehaviour {
     public void ShowLevelCanvas() {
         MainMenuCanvas.SetActive(false);
         LevelCanvas.SetActive(true);
+    }
+
+    public void ShowHighscoresCavnas() {
+        MainMenuCanvas.SetActive(false);
+        HighScoresCanvas.SetActive(true);
+    }
+
+    public void ShowMainMenuCanvas() {
+        LevelCanvas.SetActive(false);
+        HighScoresCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
     }
 
     public void LoadScene(int sceneIndex) {
