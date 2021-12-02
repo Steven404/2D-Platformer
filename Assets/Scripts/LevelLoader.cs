@@ -12,6 +12,8 @@ public class LevelLoader : MonoBehaviour {
 
     public GameObject HighScoresCanvas;
 
+    public GameObject LastWarningCanvas;
+
     public Slider slider;
 
     public static LevelLoader instance;
@@ -27,17 +29,31 @@ public class LevelLoader : MonoBehaviour {
 
     public void ShowHighscoresCavnas() {
         MainMenuCanvas.SetActive(false);
+        LastWarningCanvas.SetActive(false);
         HighScoresCanvas.SetActive(true);
     }
 
     public void ShowMainMenuCanvas() {
         LevelCanvas.SetActive(false);
         HighScoresCanvas.SetActive(false);
+        LastWarningCanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
     }
 
     public void LoadScene(int sceneIndex) {
         StartCoroutine(LoadAsynchronously(sceneIndex));
+    }
+
+    public void LastWarning() {
+        LastWarningCanvas.SetActive(true);
+        LevelCanvas.SetActive(false);
+        HighScoresCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(false);
+    }
+
+    public void resetHighscores() {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     IEnumerator LoadAsynchronously (int sceneIndex) {
@@ -50,7 +66,7 @@ public class LevelLoader : MonoBehaviour {
 
             slider.value = progress;
 
-            yield return new WaitForSeconds(1f);
+            yield return null;
         }
     }
 }

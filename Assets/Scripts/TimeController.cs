@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class TimeController : MonoBehaviour
 {
+    private int BestCoins;
+
     public TimeSpan BestTime;
 
     public GameObject InGameCanvas;

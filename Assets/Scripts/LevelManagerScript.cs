@@ -28,4 +28,14 @@ public class LevelManagerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         playerPrefab.SetActive(true);
     }
+
+    public void DisableCanvas(GameObject gameObject) {
+        gameObject.SetActive(false);
+       
+    }
+
+    public void DestroyTutorial(GameObject tutorial) {
+        Destroy(tutorial);
+        Time.timeScale = 1f;
+    }
 }

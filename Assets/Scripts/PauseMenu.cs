@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject LoadSceen;
+
+    public Slider slider;
 
     public static bool GamePaused;
 
@@ -13,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (CrossPlatformInputManager.GetButtonDown("Pause")) {
             if (GamePaused) {
                 Resume();
             }
@@ -29,7 +34,7 @@ public class PauseMenu : MonoBehaviour
         GamePaused = false;
     }
 
-    void Pause() {
+    public void Pause() {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GamePaused = true;
@@ -43,7 +48,21 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    public void LoadNextLevel() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public void LoadNextLevel(int sceneIndex) {
+        StartCoroutine(LoadAsynchronously(sceneIndex));
+    }
+
+    IEnumerator LoadAsynchronously(int sceneIndex) {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        LoadSceen.SetActive(true);
+
+        while (!operation.isDone) {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            slider.value = progress;
+
+            yield return null;
+        }
     }
 }

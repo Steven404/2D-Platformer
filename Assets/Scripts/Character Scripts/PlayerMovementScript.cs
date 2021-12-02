@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using EasyJoystick;
+using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMovementScript : MonoBehaviour
 {
     public GameObject player;
@@ -20,6 +21,7 @@ public class PlayerMovementScript : MonoBehaviour
     public static bool canMove;
 
     private int facingDirection = 1;
+    private int debugJumping = 0;
     private int variableJumpCounter;
     private int amountOfJumpsLeft;
 
@@ -33,6 +35,7 @@ public class PlayerMovementScript : MonoBehaviour
     private Animator animator;
 
     [Header("For Ground Movement")]
+    [SerializeField] public Joystick joystick;
     [SerializeField] public float movementSpeed;
     [SerializeField] private Rigidbody2D rb;
 
@@ -90,15 +93,23 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void CheckInput() {
-        movementDirectionInput = Input.GetAxisRaw("Horizontal");
+        if (isGrounded) {
+            debugJumping = 0;
+            amountOfJumpsLeft = amountOfJumps;
+            canDoubleJump = true;
+            isWallJumping = false;
+            canDoubleJump = true;
+            variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
+        }
+        movementDirectionInput = joystick.Horizontal;
         jumpRemember -= Time.deltaTime;
         wallJumpTimeLeft -= Time.deltaTime;
         groundRemember -= Time.deltaTime;
-
+        if (CrossPlatformInputManager.GetButtonUp("Jump") && !isGrounded && !isWallJumping) amountOfJumpsLeft--;
         if (isGrounded) {
             groundRemember = groundRemeberTime;
         }
-        if (Input.GetButtonDown("Jump")) {
+        if (CrossPlatformInputManager.GetButtonDown("Jump")) {
             jumpRemember = jumpRememberTime;
         }
         if (canMove && ((jumpRemember > 0 && groundRemember > 0) || ((isWallSliding) && jumpRemember > 0) || (jumpRemember > 0 && !isTouchingWall && canDoubleJump == true && amountOfJumpsLeft > 0))) {
@@ -110,9 +121,10 @@ public class PlayerMovementScript : MonoBehaviour
             isWallSliding = false;
             Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * -facingDirection, wallHopForce * wallHopDirection.y);
             rb.AddForce(forceToAdd, ForceMode2D.Impulse);
+            UpdateAnimations();
             flip();
         }
-        if (Input.GetButtonUp("Jump") && variableJumpCounter > 0) {
+        if (CrossPlatformInputManager.GetButtonUp("Jump") && variableJumpCounter > 0) {
             if (rb.velocity.y > 0) {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
                 variableJumpCounter--; // Variable Jump bug fix (slowing down on spamming space when falling)
@@ -177,6 +189,7 @@ public class PlayerMovementScript : MonoBehaviour
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isFalling", isFalling);
         animator.SetBool("isJumping", isJumping);
+        animator.SetBool("isWallSliding", isWallSliding);
     }
 
     private void flip() {
@@ -188,16 +201,16 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private void Jump() {
-        if (groundRemember > 0) {
+        if (groundRemember > 0 && amountOfJumpsLeft > 0) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             groundRemember = -1;
             jumpRemember = 0;
-            amountOfJumpsLeft--;
-        } else if (!isWallSliding && !isWallJumping) {
+            debugJumping++;
+        } else if (!isWallSliding && !isWallJumping && amountOfJumpsLeft > 0) {
             canDoubleJump = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpRemember = 0;
-            amountOfJumpsLeft--;
+            debugJumping++;
         }
         else if ((isWallSliding || isTouchingWall)) {
             amountOfJumpsLeft = amountOfJumps;
@@ -226,13 +239,6 @@ public class PlayerMovementScript : MonoBehaviour
                 if (Mathf.Abs(rb.velocity.x) > movementSpeed) {
                     rb.velocity = new Vector2(movementSpeed * movementDirectionInput, rb.velocity.y);
                 }
-            }
-            if (isGrounded) {
-                amountOfJumpsLeft = amountOfJumps;
-                canDoubleJump = true;
-                isWallJumping = false;
-                canDoubleJump = true;
-                variableJumpCounter = amountOfJumps; // Variable Jump bug fix (slowing down on spamming space when falling)
             }
             if (wallJumpTimeLeft <= 0) {
                 isWallJumping = false;

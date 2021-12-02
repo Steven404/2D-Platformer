@@ -1,8 +1,12 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System;
 
 public class ScoreManagerScript : MonoBehaviour
 {
+    int BestCoins;
+
     public static ScoreManagerScript instance;
     
     public TextMeshProUGUI CoinText;
@@ -27,6 +31,17 @@ public class ScoreManagerScript : MonoBehaviour
     }
 
     public void LevelEnded() {
+        int numVal = int.Parse(CoinText.text);
         endTextCoins.text = "Coins collected: " + score.ToString() + "/" + totalCoins.ToString();
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + " coins collected:")) {
+            BestCoins = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " coins collected:");
+            if (totalCoins > BestCoins) {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " coins collected:", numVal);
+            }
+        }
+        else {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " coins collected:", numVal);
+        }
+        PlayerPrefs.Save();
     }
 }

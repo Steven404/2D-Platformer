@@ -11,6 +11,7 @@ TagManager:
   - Platform
   - Snow
   - Main Ground
+  - music
   layers:
   - Default
   - TransparentFX

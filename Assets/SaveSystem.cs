@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,9 +19,14 @@ public class SaveSystem : MonoBehaviour
     [SerializeField] public Button Level4Button;
     [SerializeField] public Button Level5Button;
 
+    public GameObject endText;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("Level 5 best time:") && PlayerPrefs.GetFloat("Level 5 best time:") < 9000 && PlayerPrefs.HasKey("Level 4 best time:") && PlayerPrefs.HasKey("Level 3 best time:") && PlayerPrefs.HasKey("Level 2 best time:") && PlayerPrefs.HasKey("Level 5 best time:")) {
+            endText.SetActive(true);
+        }
         btimeL1 = PlayerPrefs.GetFloat("Level 1 best time:");
         btimeL2 = PlayerPrefs.GetFloat("Level 2 best time:");
         btimeL3 = PlayerPrefs.GetFloat("Level 3 best time:");
