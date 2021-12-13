@@ -600,8 +600,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: 150}
-  m_SizeDelta: {x: 700, y: 200}
+  m_AnchoredPosition: {x: 500, y: 150}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &331236769
 Animator:
@@ -646,7 +646,7 @@ MonoBehaviour:
 
     Best time: 00:00:00
 
-    Most coins Collected: 0/133'
+    Most coins Collected: 0/131'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c7b80a13444b4f64fb97c9830e8198d8, type: 2}
   m_sharedMaterial: {fileID: -4182127023282250359, guid: c7b80a13444b4f64fb97c9830e8198d8, type: 2}
@@ -2789,8 +2789,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: 400}
-  m_SizeDelta: {x: 700, y: 200}
+  m_AnchoredPosition: {x: 500, y: 400}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &812776244
 Animator:
@@ -5902,8 +5902,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 150}
-  m_SizeDelta: {x: 700, y: 200}
+  m_AnchoredPosition: {x: -500, y: 150}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1738356020
 Animator:
@@ -6523,7 +6523,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 700, y: 200}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1834628105
 Animator:
@@ -6568,7 +6568,7 @@ MonoBehaviour:
 
     Best time: 00:00:00
 
-    Most coins Collected: 0/151'
+    Most coins Collected: 0/139'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c7b80a13444b4f64fb97c9830e8198d8, type: 2}
   m_sharedMaterial: {fileID: -4182127023282250359, guid: c7b80a13444b4f64fb97c9830e8198d8, type: 2}
@@ -7244,8 +7244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 400}
-  m_SizeDelta: {x: 700, y: 200}
+  m_AnchoredPosition: {x: -500, y: 400}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2050144204
 MonoBehaviour:

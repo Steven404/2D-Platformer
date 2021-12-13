@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using EasyJoystick;
 using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -16,7 +15,6 @@ public class PlayerMovementScript : MonoBehaviour
     private bool isTouchingWall;
     private bool isWallSliding;
     private bool isWallJumping;
-    //private bool isDashing;
     private bool canDoubleJump;
     public static bool canMove;
 
@@ -29,8 +27,6 @@ public class PlayerMovementScript : MonoBehaviour
     private float jumpRemember;
     private float movementDirectionInput;
     private float wallJumpTimeLeft;
-    //private float dashTimeLeft;
-    //private float lastDash;
 
     private Animator animator;
 
@@ -42,11 +38,6 @@ public class PlayerMovementScript : MonoBehaviour
     [Header("For Air Movement")]
     [SerializeField] public float airMovementForce;
     [SerializeField] public float airDragMultiplier;
-
-    /* [Header("For Dashing")]
-     public float dashTime;
-     public float dashSpeed;
-     public float dashCooldown; */
 
     [Header("For jumping")]
     [SerializeField] public float groundRemeberTime = 0.1f;
@@ -85,7 +76,6 @@ public class PlayerMovementScript : MonoBehaviour
         CheckIfWallSliding();
         UpdateAnimations();
         CheckSurroundings();
-        //CheckDash();
     }
 
     private void FixedUpdate() {
@@ -94,7 +84,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void CheckInput() {
         if (isGrounded) {
-            debugJumping = 0;
             amountOfJumpsLeft = amountOfJumps;
             canDoubleJump = true;
             isWallJumping = false;
@@ -130,30 +119,7 @@ public class PlayerMovementScript : MonoBehaviour
                 variableJumpCounter--; // Variable Jump bug fix (slowing down on spamming space when falling)
             }
         }
-       /* if (Input.GetButtonDown("Fire3")) {
-            if (Time.time >= lastDash + dashCooldown) {
-                AttemptToDash();
-            }
-        } */
     }
-
-   /* private void AttemptToDash() {
-        isDashing = true;
-        dashTimeLeft = dashTime;
-        lastDash = Time.time;
-    } */
-
-   /* private void CheckDash() {
-        if (isDashing) {
-            if (dashTimeLeft > 0) {
-                rb.velocity = new Vector2(dashSpeed * facingDirection, rb.velocity.y);
-                dashTimeLeft -= Time.deltaTime;
-            }
-            if (dashTimeLeft <= 0 || isTouchingWall) {
-                isDashing = false;
-            }
-        }
-    } */
 
     private void CheckIfWallSliding() {
         if (isTouchingWall && !isGrounded && rb.velocity.y < 0) {
@@ -205,7 +171,6 @@ public class PlayerMovementScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             groundRemember = -1;
             jumpRemember = 0;
-            debugJumping++;
         } else if (!isWallSliding && !isWallJumping && amountOfJumpsLeft > 0) {
             canDoubleJump = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -229,16 +194,13 @@ public class PlayerMovementScript : MonoBehaviour
         isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
     }
 
-        private void ApplyMovement() {
+    private void ApplyMovement() {
         if (canMove) {
             if (!isGrounded && !isWallSliding && movementDirectionInput == 0 && !isWallJumping) {
                 rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
             }
             else if (!isWallJumping) {
                 rb.velocity = new Vector2(movementDirectionInput * movementSpeed, rb.velocity.y);
-                if (Mathf.Abs(rb.velocity.x) > movementSpeed) {
-                    rb.velocity = new Vector2(movementSpeed * movementDirectionInput, rb.velocity.y);
-                }
             }
             if (wallJumpTimeLeft <= 0) {
                 isWallJumping = false;

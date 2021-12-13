@@ -55,12 +55,12 @@ public class HighscoreGetter : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("Level 4 best time:")) {
             if (PlayerPrefs.GetFloat("Level 4 best time:") != 0 && PlayerPrefs.GetFloat("Level 4 best time:") < 9000) {
-                level4BestScore.text = "Level 4\nBest time: " + btimeL4.ToString("mm':'ss':'ff") + "\nMost coins Collected: " + bCoinsL4 + "/133";
+                level4BestScore.text = "Level 4\nBest time: " + btimeL4.ToString("mm':'ss':'ff") + "\nMost coins Collected: " + bCoinsL4 + "/131";
             }
         }
         if (PlayerPrefs.HasKey("Level 5 best time:")) {
             if (PlayerPrefs.GetFloat("Level 5 best time:") != 0 && PlayerPrefs.GetFloat("Level 5 best time:") < 9000) {
-                level5BestScore.text = "Level 5\nBest time: " + btimeL5.ToString("mm':'ss':'ff") + "\nMost coins Collected: " + bCoinsL5 + "/133";
+                level5BestScore.text = "Level 5\nBest time: " + btimeL5.ToString("mm':'ss':'ff") + "\nMost coins Collected: " + bCoinsL5 + "/139";
             }
         }
     }
